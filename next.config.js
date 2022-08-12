@@ -1,6 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  webpack: (config, { dev }) => {
+    config.resolve.fallback = { 
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      child_process: false,
+      readline: false,
+     };
+
+    return config;
+  },
   swcMinify: true,
   images: {
     domains: [
@@ -10,6 +21,8 @@ const nextConfig = {
       "s3-us-west-2.amazonaws.com",
     ],
   },
+
+
 };
 
 module.exports = nextConfig;
