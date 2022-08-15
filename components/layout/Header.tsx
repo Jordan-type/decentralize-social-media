@@ -14,26 +14,38 @@ function AccountDetails() {
       <>
       {network && <Chip label={network.name} color='secondary' />}
 
-      {address ? (
+      {address && (
+        <>
         <Chip label={ truncateAddress(address)} color='info' onDelete={destroy} sx={{ mx: 1 }} />
-         ) : (
+        {!isMobile ? (
+        <Button variant="outlined" color="inherit" onClick={destroy}>
+          Disconnect
+        </Button>
+        ) : (
+          ""
+        )}
+        </>
+      )}
+      {!address && (
          <Button color='inherit' variant='outlined' onClick={() => connect().catch(e => console.log(e))}>Connect Wallet</Button>
-         )}
-      </>
-    );
+      )}
+    </>
+  )
 }
 
 
 export function Header() {
-  
+  const theme = useTheme()
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar>
-        <Toolbar>
+      <>
+      <AppBar position="static" >
+        <Toolbar sx={{ gap: { md: 2, xs: 0.5 } }}>
           <AccountDetails />
         </Toolbar>
       </AppBar>
+      </>
     </Box>
-
   )
 }
