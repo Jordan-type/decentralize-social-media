@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCelo } from "@celo/react-celo";
 import { useEffect, useState } from "react";
-import { Button, ButtonGroup, CircularProgress, Grid, Typography } from '@mui/material';
+import { Button, ButtonGroup, CircularProgress, Divider, Grid, Typography } from '@mui/material';
 import redstone from 'redstone-api'
 import web3 from "web3";
 
@@ -95,6 +95,7 @@ export function AccountInfo() {
     return (
         <Grid container justifyContent="left">
             <Grid item sm={12} xs={12} sx={{ m: 2 }}>
+                <Divider sx={{ m: 1 }} />
                 <Typography variant='h6'>Balance:</Typography>
                 {loadingBalance ? (
                     <CircularProgress />
@@ -126,6 +127,7 @@ export function AccountInfo() {
                 ]}
             />
             )}
+            <Typography variant="h6">Select base currency for display:</Typography>
             <ButtonGroup variant="outlined" aria-label="outlined primary button group">
                 {[
                     BaseCurrency.USD,

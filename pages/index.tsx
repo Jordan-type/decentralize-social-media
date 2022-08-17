@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 import AppLayout from '../components/layout/AppLayout';
 import Profiles from "../components/profiles";
@@ -10,9 +10,15 @@ export default function Home() {
 
   return (
     <AppLayout title='Celo Decentralized Social' description='A decentralized social network built on the Celo Blockchain.'>
-       <Box>
-       <Profiles />
-       <AccountInfo/>
+       <Box sx={{ flexGrow: 1 }}>
+       {/* <Profiles /> */}
+       
+       <Grid item xs={6}>
+          <Box sx={{ width: "100%" }}>
+            <AccountInfo/>
+          </Box>
+        </Grid>
+
 
        </Box>
     </AppLayout>
