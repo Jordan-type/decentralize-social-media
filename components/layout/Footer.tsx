@@ -10,7 +10,7 @@ export default function Footer() {
     const discordLink = "https://discord.gg/cGCE9p9352";
     
     return (
-        <footer style={{ textAlign: "center" }}>
+        <footer style={{ position: "absolute", bottom: 0, width:"100%",  textAlign: "center" }}>
             <Link href={githubLink} target="_blank">
                 <Github style={{ width: "40px", margin: "5px" }} />
             </Link>
